@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Sube2.HelloMvc.Models;
 
@@ -10,9 +11,11 @@ using Sube2.HelloMvc.Models;
 namespace Sube2.HelloMvc.Migrations
 {
     [DbContext(typeof(OkulDbContext))]
-    partial class OkulDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240604133849_AddDersModel")]
+    partial class AddDersModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,50 +69,6 @@ namespace Sube2.HelloMvc.Migrations
                     b.HasKey("Ogrenciid");
 
                     b.ToTable("tblOgrenciler", (string)null);
-                });
-
-            modelBuilder.Entity("Sube2.HelloMvc.Models.OgrenciDers", b =>
-                {
-                    b.Property<int>("Ogrenciid")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Dersid")
-                        .HasColumnType("int");
-
-                    b.HasKey("Ogrenciid", "Dersid");
-
-                    b.HasIndex("Dersid");
-
-                    b.ToTable("OgrenciDersler");
-                });
-
-            modelBuilder.Entity("Sube2.HelloMvc.Models.OgrenciDers", b =>
-                {
-                    b.HasOne("Sube2.HelloMvc.Models.Ders", "Ders")
-                        .WithMany("OgrenciDersler")
-                        .HasForeignKey("Dersid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Sube2.HelloMvc.Models.Ogrenci", "Ogrenci")
-                        .WithMany("OgrenciDersler")
-                        .HasForeignKey("Ogrenciid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Ders");
-
-                    b.Navigation("Ogrenci");
-                });
-
-            modelBuilder.Entity("Sube2.HelloMvc.Models.Ders", b =>
-                {
-                    b.Navigation("OgrenciDersler");
-                });
-
-            modelBuilder.Entity("Sube2.HelloMvc.Models.Ogrenci", b =>
-                {
-                    b.Navigation("OgrenciDersler");
                 });
 #pragma warning restore 612, 618
         }

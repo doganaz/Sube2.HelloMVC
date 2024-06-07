@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Sube2.HelloMvc.Models;
+
 namespace Sube2.HelloMvc
 {
     public class Program
@@ -8,6 +11,9 @@ namespace Sube2.HelloMvc
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddDbContext<OkulDbContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 

@@ -6,13 +6,17 @@ namespace Sube2.HelloMvc.Controllers
 {
     public class StudentController : Controller
     {
+        private readonly OkulDbContext _context;
+
+        public StudentController(OkulDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            using (var ctx = new OkulDbContext())
-            {
-                var lst = ctx.Ogrenciler.ToList();
-                return View(lst);
-            }
+            var lst = _context.Ogrenciler.ToList();
+            return View(lst);
         }
 
         [HttpGet]

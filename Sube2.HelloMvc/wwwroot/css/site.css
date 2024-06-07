@@ -18,5 +18,69 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-color: #ffe6f2;
 }
+
+h1 {
+    color: #ff66b2;
+}
+div{
+    margin: 5px;
+}
+.gradient-custom {
+    background: #c471f5;
+    background: -webkit-linear-gradient(to right, rgba(196, 113, 245, 1), rgba(250, 113, 205, 1));
+    background: linear-gradient(to right, rgba(196, 113, 245, 1), rgba(250, 113, 205, 1))
+}
+.navbar-brand {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+.navbar-nav .nav-item .nav-link {
+    font-size: 1.25rem; 
+    /*padding: 0.5rem 1rem; */
+}
+.table {
+    background-color: #ffe6f2;
+    border: 1px solid #ff99cc;
+}
+
+    .table thead {
+        background-color: #ff99cc;
+        color: white;
+    }
+
+    .table tbody tr:nth-child(odd) {
+        background-color: #ffd9e6;
+    }
+
+.btn-outline-primary {
+    color: #FF69B4;
+    border-color: #FF69B4;
+}
+
+    .btn-outline-primary:hover {
+        background-color: #FF69B4;
+        color: white;
+    }
+
+.btn-outline-success {
+    color: #4caf50;
+    border-color: #4caf50;
+}
+
+    .btn-outline-success:hover {
+        background-color: #4caf50;
+        color: white;
+    }
+
+.btn-outline-danger {
+    color: #f44336;
+    border-color: #f44336;
+}
+
+    .btn-outline-danger:hover {
+        background-color: #f44336;
+        color: white;
+    }
